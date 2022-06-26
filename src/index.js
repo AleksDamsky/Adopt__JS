@@ -7,6 +7,10 @@ const addInput = form.querySelector('#question'); // можно не запра�
 
 form.addEventListener('submit', submitFormHendler); //"submit" - это нативное событие, которое отслеживает нажати на кнопку мыши или на Enter;
 
+form.addEventListener('input', () => {
+    addBtn.disabled = !isValid(addInput.value);
+})
+
 function submitFormHendler(event){
     event.preventDefault();
 
