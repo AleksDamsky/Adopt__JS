@@ -1,20 +1,40 @@
 /*Основная настройка webpack*/
 
-const path = require('path');
+const path = require('path'); // тут создаем переменную, которая будет указывать путь на папку для вывода собранных webpack-ом файлов
+const HTMLPlugin = require('html-webpack-plugin'); // Подключаем плагин, позволяющий соединять скрипт с HTML
+const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
 
 module.exports = {
     entry : './src/index.js', // это точка входа (основы webpack);
 
     output : { // это точка выхода, то есть куда webpack будет складывать скооперированные файлы
 
-        filename : 'bundle.js',
-        path : path.resolve(__dirname, 'publick'),
+        filename : 'bundle.js', // название файла, куда будет складываться рещультат сбора webpack-а;
+        path : path.resolve(__dirname, 'publick'), // таким способом мы указываем папку, где будет находиться файл для выгрузки собранных пакетов модулей.
 
     },
 
     devServer : {  // этот сервер нужен в стадии разработки. Неообходим чтобы перезагружать сервер, на котором работаем.
-        port : 3000 
-    }
+        port : 3000 // с какой скоростью работает ДевСервер.
+    },
+
+    plugins : [
+        new HTMLPlugin({ // так настравивается плагин загруженный. Это называется <Инстансом> - - <Instance> === Экземпляр || Экземпляр объекта;
+            template : './src/index.html'
+        }),
+        new CleanWebpackPlugin({
+        }),
+
+    ],
+
+    module: {
+        rules: [ //правило!
+          {
+            test: /\.css$/i, // Если webapck встречается с файлами типа css, scss, то...
+            use: ["style-loader", "css-loader"], // нужно прогнать их через вот эти лоадеры, преднащначенные специально для работы со стилями;
+          },
+        ],
+      }
 }
 
 /*тут основная настройка закончилась*/
