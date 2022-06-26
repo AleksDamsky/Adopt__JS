@@ -29,6 +29,10 @@
    left: 0;
    z-index: 2;
  }
+
+ .mui-appbar.mui--z1{
+    background-color: rgb(154, 37, 165);
+ }
  
  header ul.mui-list--inline {
    margin-bottom: 0;
@@ -55,6 +59,36 @@
    padding-bottom: 100px;
  }
  
+ .mui--logo-title{
+    font-size: 30px;
+ }
+
+.mui-form{
+   display: block;
+   position: absolute;
+   width: 70%;
+   margin-top: -300px;
+   margin-left: 100px;
+}
+
+.main__introduction{
+    font-size: 20px;
+    color: black;
+}
+
+/* .main__divider{
+    width: 70%;
+    height: 5px;
+    color: black;
+} */
+
+.mui-btn{
+    background: rgb(201,145,238);
+    
+}
+.mui-btn:hover{
+    background-color:rgba(136,39,153,1);
+}
  
  /**
   * Footer CSS
