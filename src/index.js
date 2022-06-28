@@ -1,3 +1,4 @@
+import { Question } from './question';
 import { isValid } from 'ipaddr.js';
 import './CSS/style.css';
 
@@ -22,11 +23,14 @@ function submitFormHendler(event){
 
         addBtn.disabled = true;
 
-        addInput.value = '';
-        addInput.className = '';
+        Question.create(getObject).then(() => {
+        
+            addInput.value = '';
+            addInput.className = '';
 
-        addBtn.disabled = false;
+            addBtn.disabled = false;
 
-        console.log('question', getObject);
+        });
+
     }
 }
