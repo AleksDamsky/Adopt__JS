@@ -22,7 +22,16 @@ export class Question {
 
         const question = getQuesFromLocStor();//рендерить на сайт. (выводить, короче, чтобы пользователь видел пул вопросов);
     
-        const html = question.lenght ? question.map(toCard).josn('') : 'вы пока ничего не спрашивали';
+        const html = () => {
+            if(question.lenght > 0) {
+                return question;
+            }else {
+                alert('Вы пока ничего не спросили!')
+            }
+        }
+
+        const list = document.querySelector('.main__list');
+        // list.innerHTML = html;
     } 
     
 }
